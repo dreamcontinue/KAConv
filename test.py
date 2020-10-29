@@ -1071,7 +1071,7 @@ if __name__ == "__main__":
         "--config",
         nargs="?",
         type=str,
-        default="configs/dknet_imagenet.yml",
+        default="configs/ka.yml",
         help="Configuration file to use",
     )
     args = parser.parse_args()
@@ -1085,7 +1085,4 @@ if __name__ == "__main__":
     model_path = os.path.join(logdir, cfg["training"]["best_model"])
     print(model_path)
 
-    # test(cfg, img_path='PATH/TO/IMG', model_path=model_path)
-    # test(cfg, img_path='/Users/sanyito/Downloads/v2-73fe25be6d3c1f0ea7ef980ad9e3156f_r.jpg', model_path=model_path)
-    # test(cfg, img_path='/Users/sanyito/PycharmProjects/DKNet/fig/cam/cra/seresnet_00003944/ori.jpg', model_path=model_path)
-    test(cfg, img_path='/Users/sanyito/Downloads/ILSVRC2012_val_00002566.JPEG', model_path=model_path)
+    test(cfg, img_path='PATH/TO/IMG', model_path=model_path)

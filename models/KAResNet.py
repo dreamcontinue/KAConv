@@ -69,11 +69,11 @@ class KAConv(nn.Module):
                     nn.BatchNorm2d(out_channels),
                     nn.ReLU(inplace=True)
                 ))
-        self.ag = AGL(out_channels, branches=kernel_size ** 2)
+        self.agg = AGL(out_channels, branches=kernel_size ** 2)
 
     def forward(self, x):
         x = [conv(x) for conv in self.convs]
-        x = self.ag(x)
+        x = self.agg(x)
         return x
 
 

@@ -1,27 +1,23 @@
 cuda: "all"
 model:
-    arch: resnet
+    arch: ka
     depth: 50
 data:
     dataset: imagenet
-#    train_dir: /gpfs/home/qlli/ywen/syt/dataset/ILSVRC/train
-#    val_dir: /gpfs/home/qlli/ywen/syt/dataset/ILSVRC/val
-    train_dir: /data/home/ywen/syt/dataset/ILSVRC/train
-    val_dir: /data/home/ywen/syt/dataset/ILSVRC/val
+    train_dir: /PATH/TO/ILSVRC/train
+    val_dir: /PATH/TO/ILSVRC/val
     workers: 16
 training:
-    runid: 1 #label smooth
-#    runid: 101 #cross entropy
+#    runid: 10086
 #    seed: 1337
     epochs: 100
     batch_size: 256
     loss:
-#        name: 'cross_entropy'
         name: 'label_smooth'
         smoothing: 0.1
     optimizer:
         name: 'sgd'
-        lr: 0.1  #for imagenet, lr = 0.1 * batch_size / 256
+        lr: 0.1
         weight_decay: 0.0001
         momentum: 0.9
     lr_schedule:

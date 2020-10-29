@@ -185,7 +185,7 @@ if __name__ == "__main__":
         "--config",
         nargs="?",
         type=str,
-        default="configs/kanet_imagenet.yml",
+        default="configs/ka.yml",
         help="Configuration file to use",
     )
     args = parser.parse_args()
@@ -194,7 +194,6 @@ if __name__ == "__main__":
 
     run_id = cfg["training"].get("runid", random.randint(1, 100000))
     logdir = os.path.join("runs", os.path.basename(args.config)[:-4], str(run_id))
-    # writer = SummaryWriter(logdir=logdir)
     writer = SummaryWriter(log_dir=logdir)
 
     print("RUNDIR: {}".format(logdir))

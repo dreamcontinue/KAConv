@@ -74,14 +74,14 @@ if __name__ == "__main__":
         "--config",
         nargs="?",
         type=str,
-        default="configs/kanet_imagenet.yml",
+        default="configs/ka.yml",
         help="Configuration file to use",
     )
     args = parser.parse_args()
     with open(args.config) as fp:
         cfg = yaml.load(fp)
 
-    run_id = cfg["training"].get("runid", 69815)
+    run_id = cfg["training"].get("runid", None)
     if run_id is None:
         raise Exception('In validate mode, the \033[1;35mrunid\033[0m of the model directory cannot be empty')
     logdir = os.path.join("runs", os.path.basename(args.config)[:-4], str(run_id))
