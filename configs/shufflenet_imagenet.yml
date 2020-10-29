@@ -1,0 +1,37 @@
+cuda: "0"
+model:
+    arch: shufflenetv2
+    width_mult: 1.
+data:
+    dataset: imagenet
+#    train_dir: /gpfs/home/qlli/ywen/syt/dataset/ILSVRC/train
+#    val_dir: /gpfs/home/qlli/ywen/syt/dataset/ILSVRC/val
+#    train_dir: /data/home/ywen/syt/dataset/ILSVRC/train
+#    val_dir: /data/home/ywen/syt/dataset/ILSVRC/val
+    train_dir: /home/xliu/dataset/ILSVRC/train
+    val_dir: /home/xliu/dataset/ILSVRC/val
+    workers: 32
+training:
+    runid: 69323
+#    seed: 1337
+#    epochs: 240
+    epochs: 30
+    batch_size: 256
+    loss:
+        name: 'label_smooth'
+        smoothing: 0.1
+    optimizer:
+        name: 'sgd'
+#        lr: 0.125  #for imagenet, lr = 0.1 * batch_size / 256
+        lr: 0.001
+        weight_decay: 0.00004
+        momentum: 0.9
+    lr_schedule:
+#        name: 'liner_lr'
+#        total_epoches: 240
+        name: 'step_lr'
+        step_size: 1
+        gamma: 0.92
+    save_interval: 1
+    resume: save_model.pkl
+    best_model: best_model.pkl
