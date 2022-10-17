@@ -1,5 +1,5 @@
 # KAConv: Kernel Attention Convolutions
-[KAConv: Kernel attention convolutions](https://www.sciencedirect.com/science/article/abs/pii/S0925231222012796)
+[KAConv: Kernel attention convolutions](https://doi.org/10.1016/j.neucom.2022.10.017)
 
 ## Requirement
 - `pytorch 1.1.0+`
